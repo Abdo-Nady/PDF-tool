@@ -143,10 +143,14 @@ class PDFToolApp:
             return
 
         try:
-            split_points = sorted(set(int(p.strip()) for p in raw_input.split(",") if p.strip().isdigit()))
+            tokens = [p.strip() for p in raw_input.split(",")]
+            if not tokens or any(not t.isdigit() for t in tokens):
+                raise ValueError
+
+            split_points = sorted({int(t) for t in tokens})
             if not split_points or any(p < 1 or p >= self.page_count for p in split_points):
                 raise ValueError
-        except:
+        except Exception:
             messagebox.showerror("Invalid Input", "Please enter valid page numbers (1 to N-1).")
             return
 
