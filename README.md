@@ -1,7 +1,6 @@
 # 📎 PDF Tool GUI (Merge & Split)
 
 A simple and elegant desktop application built with Python and Tkinter that allows you to:
-
 - 📎 Merge multiple PDF files
 - ✂️ Split a PDF into multiple parts by page numbers
 
